@@ -41,6 +41,7 @@ sudo chmod 2770 /srv/project
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/2f932970-6520-4b33-b826-044ee701ff72" />
 
 5.	Test Access:  
+
 a) As hannah (allowed)
 ``` bash
 su - hannah
