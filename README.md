@@ -52,6 +52,8 @@ Now the directory ownership is:
 drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project  
 ```
 **Effect:** only root owns the directory, and the devs group cannot access it.  
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/281abec0-1db2-458e-b496-fc20bec8bb55" />
+
 
 **Step 2: Observe the Problem**  
 
