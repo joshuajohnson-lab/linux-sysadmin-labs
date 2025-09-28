@@ -5,22 +5,75 @@ Each lab is documented with **objectives, steps, commands, and screenshots** to 
 
 ---
 
-## Lab 1: User & Group Permissions
-**Objective:**  Practice Linux user and group management with directories and file permissions.  
+## Lab 1: Linux User & Permissions Management  
 
-**Tasks Completed:**
-- Created users and groups.  
-- Configured directory permissions for shared and private access.  
-- Verified access and fixed "Permission Denied" issues.
+**Objective:** Practice creating and managing Linux users, groups, and permissions.  
 
-**Key Commands Used:**
+**Setup**
+- Ubuntu 22.04 VM on VirtualBox  
+- Commands run as root user  
 
-```bash  
-useradd hannah  
-groupadd devs  
-usermod -aG devs hannah  
-chmod 770 /srv/devproject  
+**Steps Performed:**  
+1. Created users:  
+``` bash
+sudo adduser hannah  
+sudo adduser johnny  
+sudo adduser Charlie  
 ```
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/6d5c6a7e-4c55-4bbe-a29f-60845ecb46b1" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/0e0580e8-3f6b-400f-a165-e37f1fe84e33" />
+
+2.	Created group:
+``` bash 
+sudo groupadd devs
+```
+3.	Added users to the group devs (leaving charlie out):
+``` bash
+sudo usermod -aG devs hannah
+sudo usermod -aG devs johnny
+```
+4.	Created a shared Project directory for the group devs:
+``` bash
+sudo mkdir /srv/project
+sudo chown :devs /srv/project
+sudo chmod 2770 /srv/project
+```
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/2f932970-6520-4b33-b826-044ee701ff72" />
+
+5.	Test Access:
+a)	As hannah (allowed)
+``` bash
+su - hannah
+cd /srv/project
+touch file_from_hannah.txt
+ls -l
+exit
+```  
+b)	As Charlie (denied)
+``` bash
+su - charlie
+cd /srv/project
+```
+c)	As johnny (allowed)
+``` bash
+su - johnny
+cd /srv/project
+touch file_from_johnny.txt
+ls -l
+```
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/c3dea09d-ff80-4f6a-be6a-6aefc70b8d00" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/eb2bffbd-f5f5-43a6-a650-2dadcbf8bb6b" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/dcfbc9e6-28df-42ff-bcc5-d19add219118" />  
+
+**Results**
+- hannah and johnny can read/write inside Project.  
+- Other users (charlie) cannot access (Permission denied).  
+**Issues & Fixes**
+- Issue: Forgot to add user to group → couldn’t access folder.  
+- Fix: Ran usermod -aG developers hannah.  
+**Learning**
+- Understood how Linux permissions (rwx) work with groups.  
+- Practiced chmod, chown, usermod.  
 
 ---
 
@@ -137,36 +190,4 @@ Both files belong to devs, allowing collaboration.
 - Always check both ownership and permissions when troubleshooting.  
 - In shared directories, the setgid bit (chmod g+s) is crucial for group collaboration.  
 - A single wrong group assignment can break access for all users.
-
-## Lab 3: Linux User & Permissions Management  
-
-**Objective:** Practice creating and managing Linux users, groups, and permissions.  
-
-**Setup**
-- Ubuntu 22.04 VM on VirtualBox  
-- Commands run as root user  
-
-**Steps Performed:**  
-1. Created users:  
-``` bash
-sudo adduser hannah  
-sudo adduser johnny  
-sudo adduser Charlie  
-```
-<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/6d5c6a7e-4c55-4bbe-a29f-60845ecb46b1" />
-<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/0e0580e8-3f6b-400f-a165-e37f1fe84e33" />
-
-2.	Created group:
-``` bash 
-sudo groupadd devs
-```
-3.	Added users to the group devs (leaving charlie out):
-``` bash
-sudo usermod -aG devs hannah
-sudo usermod -aG devs johnny
-```
-4.	Created a shared Project directory for the group devs:
-``` bash
-sudo mkdir /srv/project
-sudo chown :devs /srv/project
-sudo chmod 2770 /srv/project
+---  
