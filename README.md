@@ -6,8 +6,7 @@ Each lab is documented with **objectives, steps, commands, and screenshots** to 
 ---
 
 ## Lab 1: User & Group Permissions
-**Objective:**  
-Practice Linux user and group management with directories and file permissions.
+**Objective:**  Practice Linux user and group management with directories and file permissions.  
 
 **Tasks Completed:**
 - Created users and groups.  
