@@ -52,7 +52,7 @@ Now the directory ownership is:
 drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project  
 ```
 **Effect:** only root owns the directory, and the devs group cannot access it.  
-<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/281abec0-1db2-458e-b496-fc20bec8bb55" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/281abec0-1db2-458e-b496-fc20bec8bb55" />  
 
 
 **Step 2: Observe the Problem**  
@@ -65,6 +65,9 @@ sudo -u hannah touch /srv/project/test.txt
 ``` bash
 touch: cannot touch '/srv/project/test.txt': Permission denied  
 ```
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/9fcf28a5-35f1-498a-8afd-a9fa490e7a8b" />  
+
+
 **Step 3: Diagnose**  
 **Check directory details:**
 ``` bash
@@ -80,6 +83,8 @@ drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
 •	Permissions: rwx for owner, rws for group  
 
 **Conclusion:** The wrong group ownership is blocking access.
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/01a77348-3268-407b-8044-10a17ddcd54b" />  
+
 
 **Step 4: Fix**
 	**Change the group back to devs:**
@@ -94,6 +99,8 @@ ls -ld /srv/project
 ```
 drwxrws--- 2 root devs 4096 Sep 25 12:31 /srv/project
 ```
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/e0a5f3ae-68fd-4bfe-ada5-0265fad4016c" />  
+
 
 **Step 5: Test**
 	**Try again as hannah:**
@@ -106,6 +113,8 @@ ls -l /srv/project
 -rw-rw-r-- 1 hannah devs 0 Sep 25 14:00 test.txt
 ```
 **Success:** file created inside are owned by hannah:devs.
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/36bcb5f3-1a61-466d-a829-14e2c14d1f23" />  
+
 
 **Step 6: Verify Setgid Behaviour**  
 
@@ -121,6 +130,8 @@ ls -l /srv/project
 -rw-rw-r-- 1 johnny devs  0 Sep 25 14:05 notes.md
 ```
 Both files belong to devs, allowing collaboration.
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/4bafe203-02c8-4e05-bc3d-c57150803cdf" />
+
 
 **Key Takeaways:**
 - Always check both ownership and permissions when troubleshooting.  
