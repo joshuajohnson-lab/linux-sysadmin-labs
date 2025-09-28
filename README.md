@@ -16,7 +16,7 @@ Practice Linux user and group management with directories and file permissions.
 
 **Key Commands Used:**
 
-useradd hannah
-groupadd devs
-usermod -aG devs hannah
-chmod 770 /srv/devproject
+useradd hannah.
+groupadd devs.
+usermod -aG devs hannah.
+chmod 770 /srv/devproject.
