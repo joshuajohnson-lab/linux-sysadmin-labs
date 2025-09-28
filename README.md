@@ -66,12 +66,14 @@ ls -l
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/eb2bffbd-f5f5-43a6-a650-2dadcbf8bb6b" />
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/dcfbc9e6-28df-42ff-bcc5-d19add219118" />  
 
-**Results**
+**Results**  
 - hannah and johnny can read/write inside Project.  
 - Other users (charlie) cannot access (Permission denied).  
+
 **Issues & Fixes**
 - Issue: Forgot to add user to group → couldn’t access folder.  
 - Fix: Ran usermod -aG developers hannah.  
+
 **Learning**
 - Understood how Linux permissions (rwx) work with groups.  
 - Practiced chmod, chown, usermod.  
