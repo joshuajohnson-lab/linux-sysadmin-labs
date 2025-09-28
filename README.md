@@ -93,3 +93,15 @@ When hannah tries to create a file:
 ```
 	drwxrws--- 2 root devs 4096 Sep 25 12:31 /srv/project
 ```
+
+**Step 5: Test**
+	**Try again as hannah:**
+``` bash
+		sudo -u hannah touch /srv/project/test.txt  
+		ls -l /srv/project  
+```  
+**Output:**
+``` bash
+		-rw-rw-r-- 1 hannah devs 0 Sep 25 14:00 test.txt
+```
+**Success:** file created inside are owned by hannah:devs.
