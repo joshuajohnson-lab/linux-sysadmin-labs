@@ -62,8 +62,21 @@ When hannah tries to create a file:
 ```
 **Result:**  
 ``` bash
+	touch: cannot touch '/srv/project/test.txt': Permission denied  
 ```
-touch: cannot touch '/srv/project/test.txt': Permission denied  
+**Step 3: Diagnose**  
+**Check directory details:**
+``` bash
+		ls -ld /srv/project
+```  
 
+**Output:**
+``` bash
+		drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
+```
+•	Owner: root  
+•	Group: root ❌ (should be devs)  
+•	Permissions: rwx for owner, rws for group  
 
+**Conclusion:** The wrong group ownership is blocking access.
 
