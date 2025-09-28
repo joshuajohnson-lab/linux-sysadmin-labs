@@ -16,8 +16,34 @@ Practice Linux user and group management with directories and file permissions.
 
 **Key Commands Used:**
 
-``` bash  
+```bash  
 useradd hannah  
 groupadd devs  
 usermod -aG devs hannah  
 chmod 770 /srv/devproject  
+```
+
+---
+
+## Lab 2: Troubleshooting Shared Directory Permissions
+**Objective:**
+Practice diagnosing and fixing permission issues in a shared group directory used by multiple users.
+
+**Setup**
+* Users:
+- hannah (UID 1001, member of devs)
+- johnny (UID 1002, member of devs)
+*	Shared directory:
+-	/srv/project
+-	Intended ownership: root:devs
+* Permissions: 2770 (drwxrws---)
+    - rwx for owner (root)
+    - rws for group (devs), including the setgid bit (‘s’)
+    -	--- for others (permission denied)
+
+**Step 1: Break the Setup**
+We intentionally introduced a problem:  
+sudo chown root:root /srv/project  
+	Now the directory ownership is:  
+		drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
+Effect: only root owns the directory, and the devs group cannot access it.
