@@ -26,14 +26,15 @@ chmod 770 /srv/devproject
 ---
 
 ## Lab 2: Troubleshooting Shared Directory Permissions
-**Objective:**
-Practice diagnosing and fixing permission issues in a shared group directory used by multiple users.
+**Objective:** Practice diagnosing and fixing permission issues in a shared group directory used by multiple users.
 
 ### Setup ###  
 **Users:**
 - hannah (UID 1001, member of devs)  
 - johnny (UID 1002, member of devs)  
-**Shared directory**  
+
+**Shared directory**
+
 -	/srv/project
 -	Intended ownership: root:devs
 **Permissions: 2770 (drwxrws---)**
