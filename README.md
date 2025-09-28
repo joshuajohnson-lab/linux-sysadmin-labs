@@ -80,3 +80,16 @@ When hannah tries to create a file:
 
 **Conclusion:** The wrong group ownership is blocking access.
 
+**Step 4: Fix**
+	**Change the group back to devs:**
+``` bash
+	sudo chown :devs /srv/project
+```
+**Confirm:**
+``` bash
+	ls -ld /srv/project
+```
+**Now shows:**
+```
+	drwxrws--- 2 root devs 4096 Sep 25 12:31 /srv/project
+```
