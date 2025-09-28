@@ -119,4 +119,10 @@ ls -l /srv/project
 -rw-rw-r-- 1 hannah devs  0 Sep 25 14:00 test.txt
 -rw-rw-r-- 1 johnny devs  0 Sep 25 14:05 notes.md
 ```
-**Success:** Both files belong to devs, allowing collaboration.
+Both files belong to devs, allowing collaboration.
+
+**Key Takeaways:**
+- Always check both ownership and permissions when troubleshooting.  
+- In shared directories, the setgid bit (chmod g+s) is crucial for group collaboration.  
+- A single wrong group assignment can break access for all users.
+
