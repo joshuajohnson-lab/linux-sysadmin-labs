@@ -58,21 +58,21 @@ drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
 
 When hannah tries to create a file:  
 ``` bash
-		sudo -u hannah touch /srv/project/test.txt  
+sudo -u hannah touch /srv/project/test.txt  
 ```
 **Result:**  
 ``` bash
-	touch: cannot touch '/srv/project/test.txt': Permission denied  
+touch: cannot touch '/srv/project/test.txt': Permission denied  
 ```
 **Step 3: Diagnose**  
 **Check directory details:**
 ``` bash
-		ls -ld /srv/project
+ls -ld /srv/project
 ```  
 
 **Output:**
 ``` bash
-		drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
+drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
 ```
 •	Owner: root  
 •	Group: root ❌ (should be devs)  
@@ -83,25 +83,25 @@ When hannah tries to create a file:
 **Step 4: Fix**
 	**Change the group back to devs:**
 ``` bash
-	sudo chown :devs /srv/project
+sudo chown :devs /srv/project
 ```
 **Confirm:**
 ``` bash
-	ls -ld /srv/project
+ls -ld /srv/project
 ```
 **Now shows:**
 ```
-	drwxrws--- 2 root devs 4096 Sep 25 12:31 /srv/project
+drwxrws--- 2 root devs 4096 Sep 25 12:31 /srv/project
 ```
 
 **Step 5: Test**
 	**Try again as hannah:**
 ``` bash
-		sudo -u hannah touch /srv/project/test.txt  
-		ls -l /srv/project  
+sudo -u hannah touch /srv/project/test.txt  
+ls -l /srv/project  
 ```  
 **Output:**
 ``` bash
-		-rw-rw-r-- 1 hannah devs 0 Sep 25 14:00 test.txt
+-rw-rw-r-- 1 hannah devs 0 Sep 25 14:00 test.txt
 ```
 **Success:** file created inside are owned by hannah:devs.
