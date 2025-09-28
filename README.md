@@ -16,6 +16,7 @@ Practice Linux user and group management with directories and file permissions.
 
 **Key Commands Used:**
 
+``` bash  
 useradd hannah  
 groupadd devs  
 usermod -aG devs hannah  
