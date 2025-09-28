@@ -1,7 +1,7 @@
 # Linux SysAdmin Labs Portfolio
 
-This repository contains my hands-on Linux system administration projects.  
-Each lab is documented with **objectives, steps, commands, and screenshots** to demonstrate practical skills in user management, permissions, SSH security, and troubleshooting.
+This repository showcases my hands-on Linux system administration projects.  
+Each lab demonstrates real troubleshooting and configuration tasks, and is documented with **objectives, steps, commands, and screenshots** to demonstrate practical skills in user management, permissions, SSH security, and troubleshooting.
 
 ---
 
@@ -194,3 +194,21 @@ Both files belong to devs, allowing collaboration.
 - In shared directories, the setgid bit (chmod g+s) is crucial for group collaboration.  
 - A single wrong group assignment can break access for all users.
 ---  
+
+
+
+---
+
+## Skills Demonstrated
+- Linux user and group management  
+- File and directory permissions (chmod, chown, setgid)  
+- Shared directory troubleshooting  
+- SSH key-based authentication  
+- Secure server configuration (sshd_config)  
+- System troubleshooting and recovery  
+
+---
+
+**Author:** Joshua Johnson  
+**LinkedIn:** https://www.linkedin.com/in/s-joshua-johnson-7b71a715a/  
+**Portfolio Repo:** You are here!
