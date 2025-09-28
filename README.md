@@ -138,3 +138,16 @@ Both files belong to devs, allowing collaboration.
 - In shared directories, the setgid bit (chmod g+s) is crucial for group collaboration.  
 - A single wrong group assignment can break access for all users.
 
+# Linux User & Permissions Management Lab  
+
+**Objective:** Practice creating and managing Linux users, groups, and permissions.  
+
+**Setup**
+- Ubuntu 22.04 VM on VirtualBox  
+- Commands run as root user  
+
+**Steps Performed:**  
+  1. Created users:  
+  	a) sudo adduser hannah  
+	b) sudo adduser johnny  
+	c) sudo adduser Charlie  
