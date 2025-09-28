@@ -29,14 +29,14 @@ chmod 770 /srv/devproject
 **Objective:**
 Practice diagnosing and fixing permission issues in a shared group directory used by multiple users.
 
-**Setup**
-* Users:
+### Setup ###  
+**Users:**
 - hannah (UID 1001, member of devs)
 - johnny (UID 1002, member of devs)
-*	Shared directory:
+**Shared directory**
 -	/srv/project
 -	Intended ownership: root:devs
-* Permissions: 2770 (drwxrws---)
+**Permissions: 2770 (drwxrws---)**
     - rwx for owner (root)
     - rws for group (devs), including the setgid bit (‘s’)
     -	--- for others (permission denied)
@@ -45,5 +45,5 @@ Practice diagnosing and fixing permission issues in a shared group directory use
 We intentionally introduced a problem:  
 sudo chown root:root /srv/project  
 	Now the directory ownership is:  
-		drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
+		drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project  
 Effect: only root owns the directory, and the devs group cannot access it.
