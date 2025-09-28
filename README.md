@@ -33,7 +33,7 @@ chmod 770 /srv/devproject
 - hannah (UID 1001, member of devs)  
 - johnny (UID 1002, member of devs)  
 
-**Shared directory**
+**Shared directory:**
 
 -	/srv/project
 -	Intended ownership: root:devs
@@ -43,8 +43,19 @@ chmod 770 /srv/devproject
     -	--- for others (permission denied)
 
 **Step 1: Break the Setup**
+
 We intentionally introduced a problem:  
 sudo chown root:root /srv/project  
 	Now the directory ownership is:  
 		drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project  
-Effect: only root owns the directory, and the devs group cannot access it.
+Effect: only root owns the directory, and the devs group cannot access it.  
+
+**Step 2: Observe the Problem**  
+
+When hannah tries to create a file:  
+		sudo -u hannah touch /srv/project/test.txt  
+	Result:  
+		touch: cannot touch '/srv/project/test.txt': Permission denied  
+
+
+
