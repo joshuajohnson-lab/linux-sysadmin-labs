@@ -193,9 +193,19 @@ Both files belong to devs, allowing collaboration.
 - Always check both ownership and permissions when troubleshooting.  
 - In shared directories, the setgid bit (chmod g+s) is crucial for group collaboration.  
 - A single wrong group assignment can break access for all users.
+
 ---  
 
+## Lab 3: Secure SSH Configuration (In Progress)
 
+**Planned Tasks:**
+- Generate and use SSH keypair (`ed25519`) for authentication  
+- Install public key on VM with `ssh-copy-id`  
+- Test key-only login via port forwarding  
+- Harden `sshd_config` (disable passwords and root login)  
+- Safe recovery via VirtualBox console if locked out  
+
+**Status:** Steps 1–2 completed. Hardening config and recovery tests in progress.  
 
 ---
 
