@@ -93,12 +93,12 @@ ls -l
 -	/srv/project
 -	Intended ownership: root:devs
 
-**Permissions: 2770 (drwxrws---)**
-    - rwx for owner (root)
-    - rws for group (devs), including the setgid bit (‘s’)
-    -	--- for others (permission denied)
+**Permissions: 2770 (drwxrws---)**  
+    - rwx for owner (root)  
+    - rws for group (devs), including the setgid bit (‘s’)  
+    -	--- for others (permission denied)  
 
-**Step 1: Break the Setup**
+**Step 1: Break the Setup**  
 
 We intentionally introduced a problem:  
 ``` bash
