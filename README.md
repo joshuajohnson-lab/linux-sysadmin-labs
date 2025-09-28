@@ -41,7 +41,7 @@ sudo chmod 2770 /srv/project
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/2f932970-6520-4b33-b826-044ee701ff72" />
 
 5.	Test Access:  
-a)	As hannah (allowed)
+a) As hannah (allowed)
 ``` bash
 su - hannah
 cd /srv/project
@@ -49,12 +49,12 @@ touch file_from_hannah.txt
 ls -l
 exit
 ```  
-b)	As Charlie (denied)
+b) As Charlie (denied)
 ``` bash
 su - charlie
 cd /srv/project
 ```
-c)	As johnny (allowed)
+c) As johnny (allowed)
 ``` bash
 su - johnny
 cd /srv/project
