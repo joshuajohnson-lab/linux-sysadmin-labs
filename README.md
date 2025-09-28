@@ -105,3 +105,18 @@ ls -l /srv/project
 -rw-rw-r-- 1 hannah devs 0 Sep 25 14:00 test.txt
 ```
 **Success:** file created inside are owned by hannah:devs.
+
+**Step 6: Verify Setgid Behaviour**  
+
+The ‘s’ in drwxrws--- means the setgid bit is active. This ensures new files inherit the directory’s group (devs) rather than the user’s primary group.  
+Example: if johnny creates a file:  
+``` bash
+sudo -u johnny touch /srv/project/notes.md  
+ls -l /srv/project  
+```
+**Output:**  
+``` bash
+-rw-rw-r-- 1 hannah devs  0 Sep 25 14:00 test.txt
+-rw-rw-r-- 1 johnny devs  0 Sep 25 14:05 notes.md
+```
+**Success:** Both files belong to devs, allowing collaboration.
