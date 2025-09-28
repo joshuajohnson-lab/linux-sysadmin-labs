@@ -92,6 +92,7 @@ ls -l
 
 -	/srv/project
 -	Intended ownership: root:devs
+
 **Permissions: 2770 (drwxrws---)**
     - rwx for owner (root)
     - rws for group (devs), including the setgid bit (‘s’)
