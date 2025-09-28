@@ -31,9 +31,9 @@ Practice diagnosing and fixing permission issues in a shared group directory use
 
 ### Setup ###  
 **Users:**
-- hannah (UID 1001, member of devs)
-- johnny (UID 1002, member of devs)
-**Shared directory**
+- hannah (UID 1001, member of devs)  
+- johnny (UID 1002, member of devs)  
+**Shared directory**  
 -	/srv/project
 -	Intended ownership: root:devs
 **Permissions: 2770 (drwxrws---)**
