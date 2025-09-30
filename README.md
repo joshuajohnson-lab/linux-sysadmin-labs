@@ -5,6 +5,11 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 
 ---
 
+# Table of Contents:  
+**1. Lab 1: Linux User & Permissions Management**  
+**2. Lab 2: Troubleshooting Shared Directory Permissions**  
+**3. Lab 3: Secure SSH Configuration**  
+
 ## Lab 1: Linux User & Permissions Management  
 
 **Objective:** Practice creating and managing Linux users, groups, and permissions.  
@@ -67,7 +72,7 @@ ls -l
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/dcfbc9e6-28df-42ff-bcc5-d19add219118" />  
 
 **Results**  
-- hannah and johnny can read/write inside Project.  
+- hannah and johnny can read/write inside project.  
 - Other users (charlie) cannot access (Permission denied).  
 
 **Issues & Fixes**
