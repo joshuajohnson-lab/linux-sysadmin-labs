@@ -5,10 +5,12 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 
 ---
 
-# Table of Contents:  
-**1. Lab 1: Linux User & Permissions Management**  
-**2. Lab 2: Troubleshooting Shared Directory Permissions**  
-**3. Lab 3: Secure SSH Configuration**  
+## Labs
+- [Lab 1: User & Permissions Management](#lab-1-user--permissions-management)
+- [Lab 2: Troubleshooting Shared Directory Permissions](#lab-2-troubleshooting-shared-directory-permissions)
+- [Lab 3: SSH Hardening](#lab-3-ssh-hardening)
+
+---
 
 ## Lab 1: Linux User & Permissions Management  
 
