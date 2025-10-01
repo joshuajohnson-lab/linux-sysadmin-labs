@@ -114,7 +114,7 @@ ls -l
 - `rws` for group (devs), including the setgid bit (‘s’)  
 - `---` for others (permission denied)  
 
-## Step 1: Break the Setup  
+### Step 1: Break the Setup  
 
 We intentionally introduced a problem:  
 ``` bash
@@ -128,7 +128,7 @@ drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/281abec0-1db2-458e-b496-fc20bec8bb55" />  
 
 
-## Step 2: Observe the Problem  
+### Step 2: Observe the Problem  
 
 When hannah tries to create a file:  
 ``` bash
@@ -141,7 +141,7 @@ touch: cannot touch '/srv/project/test.txt': Permission denied
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/9fcf28a5-35f1-498a-8afd-a9fa490e7a8b" />  
 
 
-## Step 3: Diagnose  
+### Step 3: Diagnose  
 
 **Check directory details:**
 ``` bash
@@ -160,7 +160,7 @@ drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/01a77348-3268-407b-8044-10a17ddcd54b" />  
 
 
-## Step 4: Fix  
+### Step 4: Fix  
 
 **Change the group back to devs:**
 ``` bash
@@ -177,7 +177,7 @@ drwxrws--- 2 root devs 4096 Sep 25 12:31 /srv/project
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/e0a5f3ae-68fd-4bfe-ada5-0265fad4016c" />  
 
 
-## Step 5: Test  
+### Step 5: Test  
 
 **Try again as hannah:**
 ``` bash
@@ -192,7 +192,7 @@ ls -l /srv/project
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/36bcb5f3-1a61-466d-a829-14e2c14d1f23" />  
 
 
-## Step 6: Verify Setgid Behaviour  
+### Step 6: Verify Setgid Behaviour  
 
 The `s` in `drwxrws---` means the setgid bit is active. This ensures new files inherit the directory’s group `devs` rather than the user’s primary group.  
 Example: if johnny creates a file:  
@@ -220,7 +220,7 @@ Both files belong to `devs`, allowing collaboration.
 
 **Objective:** Configure SSH for **key-based login only** disabling password and root login. Verify the setup works and practice safe recovery using the VirtualBox console.  
 
-## Step 1 - Generate SSH Keypair (on Host Machine)  
+### Step 1 - Generate SSH Keypair (on Host Machine)  
 
 On Windows (my host PC), opened Git Bash and ran:  
 ``` bash  
@@ -235,7 +235,7 @@ ssh-keygen -t ed25519
 - `id_ed25519` → private key (keep secret).
 - `id_ed25519.pub` → public key (shareable, to install on VM).
 
-## Step 2 - Install Public Key on VM  
+### Step 2 - Install Public Key on VM  
 
 *Note: NAT port forwarding set (2222 → 22) on the Hypervisor*  
 
@@ -247,7 +247,7 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 2222 joshuajohnson@127.0.0.1
 - Public key copied to `~/.ssh/authorized_keys`.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aee46651-312d-4ba2-b76e-373a50318d00" />
 
-## Step 3 - Test Key-Based Login  
+### Step 3 - Test Key-Based Login  
 
 On host machine, ran:  
 ``` bash
@@ -264,7 +264,7 @@ In other words, ✅ key-based auth is working.
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6e54cee-d6de-4501-b470-caa29c038ed7" />
 
-## Step 4 - Harden SSH Config  
+### Step 4 - Harden SSH Config  
 
 *1. Backup the current config*  
 ALways save a copy first:  
@@ -306,7 +306,7 @@ sudo sshd -t
 
 (no output = no syntax errors).
 
-## Step 5 - Restart & Verify  
+### Step 5 - Restart & Verify  
 
 1. Restart SSH
 ``` bash
@@ -333,7 +333,7 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 josh
 - Should fail now (since password authentication has been disabled).  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d05070a3-5aa1-4e1a-997e-30e669ffa7fa" />  
 
-## Step 6 - Recovery (if locked out)  
+### Step 6 - Recovery (if locked out)  
 
 From VirtualBoxConsole:  
 ``` bash
@@ -358,7 +358,7 @@ sudo systemctl restart ssh
 - Break file permissions deliberately.
 - Troubleshoot and fix so the web server works properly.
 
-## Step 1 - Install Nginx  
+### Step 1 - Install Nginx  
 
 On the VM:  
 ``` bash
@@ -387,7 +387,7 @@ curl http://localhost
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3562585b-9890-4986-9067-1e39d5bbafcc" />  
 
-## Step 2 - Deploy Custom Web Page  
+### Step 2 - Deploy Custom Web Page  
 
 Replace the default index.html:
 ``` bash
@@ -400,7 +400,7 @@ curl http://localhost
 ```
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7c4e22f-f5cc-45bd-ae1d-6e71ce99118d" />
 
-## Step 3 - Break Permissions  
+### Step 3 - Break Permissions  
 
 A classic sysadmin error:  
 ```
@@ -411,7 +411,7 @@ sudo chmod 600 /var/www/html/index.html
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5b2c4231-5ee6-424a-aa99-941e623a83cb" />  
 
-## Step 4 - Fix Permissions  
+### Step 4 - Fix Permissions  
 
 To fix:  
 ```bash
@@ -453,7 +453,7 @@ Create an automated backup system that:
 
 ---
 
-## Step 1: Prepare Backup Directory
+### Step 1: Prepare Backup Directory
 
 **Commands:**
 ```bash
@@ -466,7 +466,7 @@ sudo chown $USER:$USER /backups
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/92ca69fc-cfa3-44e0-b0dd-1d174b9d6895" />  
 
-## Step 2: Manual RSync Backup  
+### Step 2: Manual RSync Backup  
 
 **Command:**  
 ``` bash
@@ -480,7 +480,7 @@ rsync -avh --delete /home/joshuajohnson/ /backups/home_backup/
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff8d1dbd-e229-453f-a532-da72c875af3f" />  
 
-## Step 3: Automate with Cron
+### Step 3: Automate with Cron
 
 **Command:**
 ``` bash  
@@ -500,7 +500,7 @@ crontab -l
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/11351097-7715-4a26-b888-cbd4f3e79f85" />  
 
-## Step 4: Test Cron Job  
+### Step 4: Test Cron Job  
 
 Run rsync manually to simulate the cron job:
 ``` bash
@@ -513,7 +513,7 @@ ls -l /backups/home_backup/
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6ccc4d94-e66e-49e4-8b82-61793cf28f42" />  
 
-## Step 5: Restore From Backup  
+### Step 5: Restore From Backup  
 
 Simulate Data Loss:  
 ``` bash
