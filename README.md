@@ -205,7 +205,7 @@ Both files belong to `devs`, allowing collaboration.
 ---  
 
 ## Lab 3: Secure SSH Configuration  
-**Objective:** Configure SSH for key-based login only (disable password login, disable root login) and practice safe recovery.  
+**Objective:** Configure SSH for **key-based login only** disabling password and root login. Verify the setup works and practice safe recovery using the VirtualBox console.  
 
 **Step 1 - Generate SSH Keypair (on Host Machine)**
 
@@ -230,7 +230,8 @@ Command (from host):
 ``` bash  
 ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 2222 joshuajohnson@127.0.0.1
 ```
-
+- Prompted for password once.  
+- Public key copied to `~/.ssh/authorized_keys`.  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aee46651-312d-4ba2-b76e-373a50318d00" />
 
 **Step 3 - Test Key-Based Login**  
@@ -298,7 +299,7 @@ sudo sshd -t
 sudo systemctl restart ssh
 ```
 
-2. Test Login again (from host)
+2. Test Key Login (from host)
 Opened a new terminal (current working session still open).
 From host, tried:
 ``` bash
@@ -316,6 +317,20 @@ ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 josh
 ```
 - Should fail now (since password authentication has been disabled).
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d05070a3-5aa1-4e1a-997e-30e669ffa7fa" />
+
+**Step 6 - Recovery (if locked out)**  
+From VirtualBoxConsole:  
+``` bash
+sudo cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config
+sudo systemctl restart ssh
+```  
+
+## Lessons Learned
+
+- Key-based login is stronger and safer than passwords.
+- Always back up configs before editing.
+- SSHD applies the last occurrence of a setting, so clean duplicates to avoid confusion.
+- Always test with a second terminal before restarting services.
 
 ---
 
