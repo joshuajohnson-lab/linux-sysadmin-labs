@@ -280,8 +280,7 @@ PermitRootLogin no
 
 Save and exit (`Ctrl+0`, `Enter`, `Ctrl+X`)  
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3ef2e682-b68c-437d-945d-efaac889a8b9" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ad345464-c053-4028-ba20-d8c78337fbb0" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cb8f2901-0f83-4deb-a865-e1d60bf7cbcf" />
 
 
 *3. Check Syntax*  
