@@ -280,17 +280,43 @@ PermitRootLogin no
 
 Save and exit (`Ctrl+0`, `Enter`, `Ctrl+X`)  
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3ef2e682-b68c-437d-945d-efaac889a8b9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ad345464-c053-4028-ba20-d8c78337fbb0" />
 
 
+*3. Check Syntax*  
+``` bash
+sudo sshd -t
+```
 
-**Planned Tasks:**
-- Generate and use SSH keypair (`ed25519`) for authentication  
-- Install public key on VM with `ssh-copy-id`  
-- Test key-only login via port forwarding  
-- Harden `sshd_config` (disable passwords and root login)  
-- Safe recovery via VirtualBox console if locked out  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e99efbfe-3fc1-4845-9d22-d33e8758fc4f" />
 
-**Status:** Steps 1–2 completed. Hardening config and recovery tests in progress.  
+(no output = no syntax errors).
+
+**Step 5 - Restart & Verify**
+1. Restart SSH
+``` bash
+sudo systemctl restart ssh
+```
+
+2. Test Login again (from host)
+Opened a new terminal (current working session still open).
+From host, tried:
+``` bash
+ssh -i ~/.ssh/id_ed25519 -p 2222 joshuajohnson@127.0.0.1
+```  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9e9fb024-c093-4144-a8a6-01cf865cd56f" />
+**Success:**  
+- Key login works.
+- No password prompt
+
+3. Test Password Login (should fail)
+Force password-only attempt:
+```  bash
+ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 joshuajohnson@127.0.0.1
+```
+- Should fail now (since password authentication has been disabled).
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d05070a3-5aa1-4e1a-997e-30e669ffa7fa" />
 
 ---
 
