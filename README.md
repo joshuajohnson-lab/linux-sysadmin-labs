@@ -253,18 +253,18 @@ In other words, ✅ key-based auth is working.
 **Step 4 - Harden SSH Config**  
 
 *1. Backup the current config*  
-   ALways save a copy first:
+ALways save a copy first:  
 ``` bash
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 ```
 
 *2. Edit the SSH Config*  
-	Open the file:
+Open the file:  
 ``` bash
 sudo nano /etc/ssh/sshd_config
 ```  
 
-*Find and set (or add if missing) these lines:*  
+Find and set (or add if missing) these lines:  
 ```  
 PubkeyAuthentication yes
 PasswordAuthentication no
