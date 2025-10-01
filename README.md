@@ -1,7 +1,16 @@
 # Linux SysAdmin Labs Portfolio
 
+# Linux SysAdmin Labs Portfolio
+
 This repository showcases my hands-on Linux system administration projects.  
-Each lab demonstrates real troubleshooting and configuration tasks, and is documented with **objectives, steps, commands, and screenshots** to demonstrate practical skills in user management, permissions, SSH security, and troubleshooting.
+Each lab demonstrates real troubleshooting and configuration tasks, and is documented with objectives, steps, commands, and screenshots to demonstrate practical skills in:
+
+- User & group management  
+- File permissions & troubleshooting  
+- Secure SSH configuration  
+- Web server deployment  
+- Automated backups & scheduling  
+
 
 ---
 
@@ -10,7 +19,7 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 - [Lab 2: Troubleshooting Shared Directory Permissions](#lab-2-troubleshooting-shared-directory-permissions)
 - [Lab 3: SSH Hardening](#lab-3-secure-ssh-configuration)
 - [Lab 4: Web Server Deployment & Permissions](#lab-4-web-server-deployment-and-permissions)
-- [Lab 5: Automated Backups with `Cron` + `Rsync`](#Lab-5-Automated-Backups-with-Cron-and-Rsync)
+- [Lab 5: Automated Backups with `Cron` + `Rsync`](#Lab-5-Automated-Backups-with-Cron--Rsync)
 
 ---
 
@@ -425,7 +434,7 @@ Page should work again.
 
 ---  
 
-# Lab 5: Automated Backups with `Cron` and `Rsync`
+# Lab 5: Automated Backups with `Cron` + `Rsync`
 
 ## Objective
 Create an automated backup system that:
@@ -523,12 +532,16 @@ cp /backups/home_backup/hello.txt ~/
 ---  
 
 ## Skills Demonstrated
-- Linux user and group management  
-- File and directory permissions (chmod, chown, setgid)  
-- Shared directory troubleshooting  
-- SSH key-based authentication  
-- Secure server configuration (sshd_config)  
-- System troubleshooting and recovery  
+- Linux user & group management
+- File permissions, ACLs, and troubleshooting
+- Secure SSH configuration (key-based authentication, disabling password/root login)
+- Web server deployment and troubleshooting (Nginx/Apache)
+- Process & service management with `systemctl`
+- Automation with `cron` jobs
+- Backup & restore using `rsync`
+- Basic security hardening practices
+- Practical troubleshooting workflows
+
 
 ---
 
