@@ -215,6 +215,7 @@ ssh-keygen -t ed25519
 ```  
 - Pressed Enter to accept the default save location (C:\Users\<username>\.ssh\id_ed25519).
 - Passphrase: Left blank for now.
+- 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9106b172-7877-4f99-ab34-e53b0502a66a" />
 
 **Notes:**    
@@ -223,12 +224,13 @@ ssh-keygen -t ed25519
 
 **Step 2 - Install Public Key on VM**  
 
-(Note: NAT port forwarding set (2222 → 22) on the Hypervisor)  
+*Note: NAT port forwarding set (2222 → 22) on the Hypervisor*  
 
 Command (from host):  
 ``` bash  
 ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 2222 joshuajohnson@127.0.0.1
 ```
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aee46651-312d-4ba2-b76e-373a50318d00" />
 
 **Step 3 - Test Key-Based Login**  
@@ -244,8 +246,40 @@ ssh -i ~/.ssh/id_ed25519 -p 2222 joshuajohnson@127.0.0.1
 
 *Result:*  
 It logged me in without asking for a password.  
-In other words, ✅ key-based auth is working.
+In other words, ✅ key-based auth is working.  
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6e54cee-d6de-4501-b470-caa29c038ed7" />
+
+**Step 4 - Harden SSH Config**  
+
+*1. Backup the current config*  
+   ALways save a copy first:
+``` bash
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+```
+
+*2. Edit the SSH Config*  
+	Open the file:
+``` bash
+sudo nano /etc/ssh/sshd_config
+```  
+
+*Find and set (or add if missing) these lines:*  
+```  
+PubkeyAuthentication yes
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+PermitRootLogin no
+```
+
+*Notes:*  
+- PubkeyAuthentication yes → allow key-based login.
+- PasswordAuthentication no → disable password login.
+- ChallengeResponseAuthentication no → disable alternate login prompts.
+- PermitRootLogin no → root can’t log in directly over SSH.
+
+Save and exit (ctrl+0, Enter, Ctrl+X)  
+
 
 
 
