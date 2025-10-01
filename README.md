@@ -287,8 +287,8 @@ Save and exit (`Ctrl+0`, `Enter`, `Ctrl+X`)
 ``` bash
 sudo sshd -t
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fa4704f5-4c93-4c51-9a26-ec0a7e628077" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e99efbfe-3fc1-4845-9d22-d33e8758fc4f" />
 
 (no output = no syntax errors).
 
