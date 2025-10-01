@@ -92,7 +92,7 @@ ls -l
 - Issue: Forgot to add user to group → couldn’t access folder.  
 - Fix: Ran usermod -aG developers hannah.  
 
-**Learning**
+**Lessons Learned**
 - Understood how Linux permissions (rwx) work with groups.  
 - Practiced chmod, chown, usermod.  
 
