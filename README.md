@@ -97,13 +97,13 @@ ls -l
 
 **Shared directory:**
 
--	/srv/project
--	Intended ownership: root:devs
+-	`/srv/project`
+-	Intended ownership: `root:devs`
 
 **Permissions: 2770 (drwxrws---)**  
-- rwx for owner (root)  
-- rws for group (devs), including the setgid bit (‘s’)  
-- --- for others (permission denied)  
+- `rwx` for owner (root)  
+- `rws` for group (devs), including the setgid bit (‘s’)  
+- `---` for others (permission denied)  
 
 **Step 1: Break the Setup**  
 
@@ -142,9 +142,9 @@ ls -ld /srv/project
 ``` bash
 drwxrws--- 2 root root 4096 Sep 25 12:31 /srv/project
 ```
-•	Owner: root  
-•	Group: root ❌ (should be devs)  
-•	Permissions: rwx for owner, rws for group  
+•	Owner: `root`  
+•	Group: `root` ❌ (should be `devs`)  
+•	Permissions: `rwx` for owner, `rws` for group  
 
 **Conclusion:** The wrong group ownership is blocking access.
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/01a77348-3268-407b-8044-10a17ddcd54b" />  
@@ -182,7 +182,7 @@ ls -l /srv/project
 
 **Step 6: Verify Setgid Behaviour**  
 
-The ‘s’ in drwxrws--- means the setgid bit is active. This ensures new files inherit the directory’s group (devs) rather than the user’s primary group.  
+The `s` in `drwxrws---` means the setgid bit is active. This ensures new files inherit the directory’s group `devs` rather than the user’s primary group.  
 Example: if johnny creates a file:  
 ``` bash
 sudo -u johnny touch /srv/project/notes.md  
@@ -193,13 +193,13 @@ ls -l /srv/project
 -rw-rw-r-- 1 hannah devs  0 Sep 25 14:00 test.txt
 -rw-rw-r-- 1 johnny devs  0 Sep 25 14:05 notes.md
 ```
-Both files belong to devs, allowing collaboration.
+Both files belong to `devs`, allowing collaboration.
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/4bafe203-02c8-4e05-bc3d-c57150803cdf" />
 
 
 **Key Takeaways:**
 - Always check both ownership and permissions when troubleshooting.  
-- In shared directories, the setgid bit (chmod g+s) is crucial for group collaboration.  
+- In shared directories, the setgid bit `chmod g+s` is crucial for group collaboration.  
 - A single wrong group assignment can break access for all users.
 
 ---  
@@ -219,8 +219,8 @@ ssh-keygen -t ed25519
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9106b172-7877-4f99-ab34-e53b0502a66a" />
 
 **Notes:**    
-- id_ed25519 → private key (keep secret).
-- id_ed25519.pub → public key (shareable, to install on VM).
+- `id_ed25519` → private key (keep secret).
+- `id_ed25519.pub` → public key (shareable, to install on VM).
 
 **Step 2 - Install Public Key on VM**  
 
@@ -240,9 +240,9 @@ On host machine, ran:
 ssh -i ~/.ssh/id_ed25519 -p 2222 joshuajohnson@127.0.0.1
 ```
 *Command Explained:*  
-- -i → use the private key.
-- -p 2222 → connect through the forwarded port.  
-- joshuajohnson@127.0.0.1 → VM’s user + loopback.  
+- `-i` → use the private key.
+- `-p 2222` → connect through the forwarded port.  
+- `joshuajohnson@127.0.0.1` → VM’s user + loopback.  
 
 *Result:*  
 It logged me in without asking for a password.  
@@ -278,7 +278,7 @@ PermitRootLogin no
 - `ChallengeResponseAuthentication no` → disable alternate login prompts.
 - `PermitRootLogin no` → root can’t log in directly over SSH.
 
-Save and exit (`ctrl+0`, `Enter`, `Ctrl+X`)  
+Save and exit (`Ctrl+0`, `Enter`, `Ctrl+X`)  
 
 
 
