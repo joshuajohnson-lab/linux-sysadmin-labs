@@ -305,7 +305,8 @@ From host, tried:
 ``` bash
 ssh -i ~/.ssh/id_ed25519 -p 2222 joshuajohnson@127.0.0.1
 ```  
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9e9fb024-c093-4144-a8a6-01cf865cd56f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9e9fb024-c093-4144-a8a6-01cf865cd56f" />  
+
 **Success:**  
 - Key login works.
 - No password prompt
