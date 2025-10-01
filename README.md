@@ -326,7 +326,7 @@ sudo cp /etc/ssh/sshd_config.bak /etc/ssh/sshd_config
 sudo systemctl restart ssh
 ```  
 
-## Lessons Learned
+### Lessons Learned
 
 - Key-based login is stronger and safer than passwords.
 - Always back up configs before editing.
