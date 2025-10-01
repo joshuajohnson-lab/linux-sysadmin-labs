@@ -9,6 +9,7 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 - [Lab 1: User & Permissions Management](#lab-1-linux-user--permissions-management)
 - [Lab 2: Troubleshooting Shared Directory Permissions](#lab-2-troubleshooting-shared-directory-permissions)
 - [Lab 3: SSH Hardening](#lab-3-secure-ssh-configuration)
+- [Lab 4: Web Server Deployment & Permissions](#lab-4-web-server-deployment-permissions)
 
 ---
 
@@ -334,6 +335,8 @@ sudo systemctl restart ssh
 - Always test with a second terminal before restarting services.
 
 ---
+
+## Lab 4: Web Server Deployment & Permissions
 
 ## Skills Demonstrated
 - Linux user and group management  
