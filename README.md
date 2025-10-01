@@ -425,7 +425,7 @@ Page should work again.
 
 ---  
 
-# Lab 5: Automated Backups with Cron + Rsync
+# Lab 5: Automated Backups with Cron and Rsync
 
 ## Objective
 Create an automated backup system that:
