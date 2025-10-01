@@ -1,7 +1,5 @@
 # Linux SysAdmin Labs Portfolio
 
-# Linux SysAdmin Labs Portfolio
-
 This repository showcases my hands-on Linux system administration projects.  
 Each lab demonstrates real troubleshooting and configuration tasks, and is documented with objectives, steps, commands, and screenshots to demonstrate practical skills in:
 
