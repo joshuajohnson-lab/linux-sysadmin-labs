@@ -337,6 +337,40 @@ sudo systemctl restart ssh
 ---
 
 ## Lab 4: Web Server Deployment and Permissions
+**Objectives:**   
+- Install a web server (Nginx)
+- Host a simple “Hello World” webpage.
+- Break file permissions deliberately.
+- Troubleshoot and fix so the web server works properly.
+
+**Step 1 - Install Nginx**  
+On the VM:  
+``` bash
+sudo apt update
+sudo apt install -y nginx
+```
+
+Check if it's running  
+``` bash
+systemctl status nginx
+```
+Expected: Active (running).  
+
+Test in Browser:  
+- Open your host browser and go to http://127.0.0.1:8080 (if you set up port forwarding host 8080 → guest 80).
+- Or just run inside VM:
+``` bash
+curl http://localhost
+```  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/07d296a4-c784-4238-94b0-26075d816803" />  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f09a698b-6013-44b1-bd61-c7c03d25fe15" />  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3562585b-9890-4986-9067-1e39d5bbafcc" />  
+
+
+
+
+
 
 ## Skills Demonstrated
 - Linux user and group management  
