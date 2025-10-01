@@ -34,7 +34,7 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 ``` bash
 sudo adduser hannah  
 sudo adduser johnny  
-sudo adduser Charlie  
+sudo adduser charlie  
 ```
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/6d5c6a7e-4c55-4bbe-a29f-60845ecb46b1" />
 <img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/0e0580e8-3f6b-400f-a165-e37f1fe84e33" />
@@ -66,7 +66,7 @@ touch file_from_hannah.txt
 ls -l
 exit
 ```  
-b) As Charlie (denied)
+b) As charlie (denied)
 ``` bash
 su - charlie
 cd /srv/project
