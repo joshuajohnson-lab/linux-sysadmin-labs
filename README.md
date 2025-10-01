@@ -542,6 +542,12 @@ cp /backups/home_backup/hello.txt ~/
 - Basic security hardening practices
 - Practical troubleshooting workflows
 
+---  
+
+## 🚀 Next Steps
+- Explore SELinux and ACL troubleshooting
+- Automate log rotation and monitoring scripts
+- Practice AWS EC2 setup and integration with Linux  
 
 ---
 
