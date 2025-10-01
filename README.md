@@ -422,6 +422,100 @@ Page should work again.
 - Correct owner/permissions (www-data:www-data, 644) → page works again.
 - In real-world jobs, updating web content means also managing caching, deployment consistency, and troubleshooting at multiple layers (browser, server, CDN).
 
+---  
+
+# Lab 5: Automated Backups with Cron + Rsync
+
+## Objective
+Create an automated backup system that:
+- Copies files from a user’s home directory to a backup location.
+- Uses `rsync` for efficiency.
+- Runs automatically via `cron`.
+- Demonstrates restoring files from the backup.
+
+---
+
+## Step 1: Prepare Backup Directory
+**Commands:**
+```bash
+sudo mkdir -p /backups
+sudo chown $USER:$USER /backups
+```
+**Notes:**  
+- `/backups` will store user home backups.
+- Ownership changed to current user so `rsync` can write.  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/92ca69fc-cfa3-44e0-b0dd-1d174b9d6895" />  
+
+## Step 2: Manual RSync Backup  
+**Command:**  
+``` bash
+rsync -avh --delete /home/joshuajohnson/ /backups/home_backup/
+```
+**Flags explained:**  
+- `-a` → archive mode (preserves permissions, symlinks, timestamps).  
+- `-v` → verbose output.  
+- `-h` → human-readable.  
+- `--delete` → keeps backup in sync by removing deleted files.  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff8d1dbd-e229-453f-a532-da72c875af3f" />  
+
+## Step 3: Automate with Cron
+**Command:**
+``` bash  
+crontab -e
+```
+**Cron entry for daily backup at 2 AM:**  
+``` bash
+0 2 * * * rsync -avh --delete /home/joshuajohnson/ /backups/home_backup/
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bf2c1ad8-21f3-4d76-a4cf-114230e17d85" />  
+
+Command to confirm:  
+``` bash
+crontab -l
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/11351097-7715-4a26-b888-cbd4f3e79f85" />  
+
+## Step 4: Test Cron Job  
+
+Run rsync manually to simulate the cron job:
+``` bash
+rsync -avh --delete /home/joshuajohnson/ /backups/home_backup/
+```
+Check Backup Folder:  
+``` bash
+ls -l /backups/home_backup/
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6ccc4d94-e66e-49e4-8b82-61793cf28f42" />  
+
+## Step 5: Restore From Backup  
+
+Simulate Data Loss:  
+``` bash
+rm ~/hello.txt
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e77915ae-ea91-41d2-ad54-4b0253708aac" />  
+
+
+Restore from Backup:  
+``` bash  
+cp /backups/home_backup/hello.txt ~/
+```
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f656ae9d-24b8-49bc-96b6-8b69fd34ebbc" />  
+
+### Lessons Learned
+- `rsync` is powerful for backups — efficient and preserves file properties.
+- `cron` ensures automation: jobs run on schedule without manual intervention.
+- Always verify both backup and restore to confirm data safety.
+- In real-world use, combine with off-site backups (cloud or remote servers) for disaster recovery.
+
+
 
 
 ---  
