@@ -544,7 +544,7 @@ cp /backups/home_backup/hello.txt ~/
 
 ---  
 
-## 🚀 Next Steps
+## Next Steps
 - Explore SELinux and ACL troubleshooting
 - Automate log rotation and monitoring scripts
 - Practice AWS EC2 setup and integration with Linux  
