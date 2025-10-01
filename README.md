@@ -8,7 +8,7 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 ## Labs
 - [Lab 1: User & Permissions Management](#lab-1-linux-user--permissions-management)
 - [Lab 2: Troubleshooting Shared Directory Permissions](#lab-2-troubleshooting-shared-directory-permissions)
-- [Lab 3: SSH Hardening](#lab-3-secure-ssh-configuration-in-progress)
+- [Lab 3: SSH Hardening](#lab-3-secure-ssh-configuration)
 
 ---
 
