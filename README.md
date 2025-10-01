@@ -311,13 +311,13 @@ ssh -i ~/.ssh/id_ed25519 -p 2222 joshuajohnson@127.0.0.1
 - Key login works.
 - No password prompt
 
-3. Test Password Login (should fail)
-Force password-only attempt:
+3. Test Password Login (should fail)  
+Force password-only attempt:  
 ```  bash
 ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -p 2222 joshuajohnson@127.0.0.1
 ```
-- Should fail now (since password authentication has been disabled).
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d05070a3-5aa1-4e1a-997e-30e669ffa7fa" />
+- Should fail now (since password authentication has been disabled).  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d05070a3-5aa1-4e1a-997e-30e669ffa7fa" />  
 
 **Step 6 - Recovery (if locked out)**  
 From VirtualBoxConsole:  
