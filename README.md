@@ -215,7 +215,7 @@ ssh-keygen -t ed25519
 ```  
 - Pressed Enter to accept the default save location (C:\Users\<username>\.ssh\id_ed25519).
 - Passphrase: Left blank for now.
-- 
+
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9106b172-7877-4f99-ab34-e53b0502a66a" />
 
 **Notes:**    
