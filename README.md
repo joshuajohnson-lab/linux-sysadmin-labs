@@ -10,7 +10,7 @@ Each lab demonstrates real troubleshooting and configuration tasks, and is docum
 - [Lab 2: Troubleshooting Shared Directory Permissions](#lab-2-troubleshooting-shared-directory-permissions)
 - [Lab 3: SSH Hardening](#lab-3-secure-ssh-configuration)
 - [Lab 4: Web Server Deployment & Permissions](#lab-4-web-server-deployment-and-permissions)
-- [Lab 5: Automated Backups with Cron + Rsync](#Lab-5-Automated-Backups-with-Cron-and-Rsync)
+- [Lab 5: Automated Backups with `Cron` + `Rsync`](#Lab-5-Automated-Backups-with-Cron-and-Rsync)
 
 ---
 
@@ -425,7 +425,7 @@ Page should work again.
 
 ---  
 
-# Lab 5: Automated Backups with Cron and Rsync
+# Lab 5: Automated Backups with `Cron` and `Rsync`
 
 ## Objective
 Create an automated backup system that:
