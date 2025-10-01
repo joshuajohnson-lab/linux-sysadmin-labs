@@ -273,12 +273,12 @@ PermitRootLogin no
 ```
 
 *Notes:*  
-- PubkeyAuthentication yes → allow key-based login.
-- PasswordAuthentication no → disable password login.
-- ChallengeResponseAuthentication no → disable alternate login prompts.
-- PermitRootLogin no → root can’t log in directly over SSH.
+- ```PubkeyAuthentication yes``` → allow key-based login.
+- ```PasswordAuthentication no``` → disable password login.
+- ```ChallengeResponseAuthentication no``` → disable alternate login prompts.
+- ```PermitRootLogin no``` → root can’t log in directly over SSH.
 
-Save and exit (ctrl+0, Enter, Ctrl+X)  
+Save and exit (```ctrl+0```, ```Enter```, ```Ctrl+X```)  
 
 
 
