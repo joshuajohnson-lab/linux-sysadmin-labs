@@ -371,7 +371,56 @@ curl http://localhost
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3562585b-9890-4986-9067-1e39d5bbafcc" />  
 
+**Step 2 - Deploy Custom Web Page**  
 
+Replace the default index.html:
+``` bash
+echo "Hello from Lab 4 Web Server!" | sudo tee /var/www/html/index.html
+```
+
+Test:  
+``` bash
+curl http://localhost
+```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b7c4e22f-f5cc-45bd-ae1d-6e71ce99118d" />
+
+**Step 3 - Break Permissions**  
+A classic sysadmin error:  
+```
+sudo chown root:root /var/www/html/index.html
+sudo chmod 600 /var/www/html/index.html
+```
+**Expected:** "403 Forbidden or something similar.  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5b2c4231-5ee6-424a-aa99-941e623a83cb" />  
+
+**Step 4 - Fix Permissions**  
+To fix:  
+```bash
+sudo chown www-data:www-data /var/www/html/index.html
+sudo chmod 644 /var/www/html/index.html
+```
+**Why?**  
+- Web server runs as user www-data (on Ubuntu/Debian).
+- Needs read access to the file.  
+
+Test Again:  
+``` bash
+curl http://localhost
+```
+Page should work again.  
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/79ccaf19-059e-4b6d-acf4-6f7e2b23303b" />  
+
+### Lessons Learned
+
+- Nginx installation is straightforward (apt install nginx), but you must know how to verify service status (systemctl status nginx) and test using curl or a browser.
+- The default “Welcome to Nginx” page can cause confusion — always check which index.html file is being served.
+- Browsers and proxies can cache old content, so sometimes updates don’t appear until you force-refresh (Ctrl+F5) or adjust cache headers.
+- File ownership and permissions matter:
+- Wrong owner/permissions (e.g., root:root with 600) → Nginx can’t read → 403 Forbidden.
+- Correct owner/permissions (www-data:www-data, 644) → page works again.
+- In real-world jobs, updating web content means also managing caching, deployment consistency, and troubleshooting at multiple layers (browser, server, CDN).
 
 
 
