@@ -204,7 +204,50 @@ Both files belong to devs, allowing collaboration.
 
 ---  
 
-## Lab 3: Secure SSH Configuration (In Progress)
+## Lab 3: Secure SSH Configuration  
+**Objective:** Configure SSH for key-based login only (disable password login, disable root login) and practice safe recovery.  
+
+**Step 1 - Generate SSH Keypair (on Host Machine)**
+
+On Windows (my host PC), opened Git Bash and ran:  
+``` bash  
+ssh-keygen -t ed25519
+```  
+- Pressed Enter to accept the default save location (C:\Users\<username>\.ssh\id_ed25519).
+- Passphrase: Left blank for now.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9106b172-7877-4f99-ab34-e53b0502a66a" />
+
+**Notes:**    
+- id_ed25519 → private key (keep secret).
+- id_ed25519.pub → public key (shareable, to install on VM).
+
+**Step 2 - Install Public Key on VM**  
+
+(Note: NAT port forwarding set (2222 → 22) on the Hypervisor)  
+
+Command (from host):  
+``` bash  
+ssh-copy-id -i ~/.ssh/id_ed25519.pub -p 2222 joshuajohnson@127.0.0.1
+```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/aee46651-312d-4ba2-b76e-373a50318d00" />
+
+**Step 3 - Test Key-Based Login**  
+
+On host machine, ran:  
+``` bash
+ssh -i ~/.ssh/id_ed25519 -p 2222 joshuajohnson@127.0.0.1
+```
+*Command Explained:*  
+- -i → use the private key.
+- -p 2222 → connect through the forwarded port.  
+- joshuajohnson@127.0.0.1 → VM’s user + loopback.  
+
+*Result:*  
+It logged me in without asking for a password.  
+In other words, ✅ key-based auth is working.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e6e54cee-d6de-4501-b470-caa29c038ed7" />
+
+
 
 **Planned Tasks:**
 - Generate and use SSH keypair (`ed25519`) for authentication  
